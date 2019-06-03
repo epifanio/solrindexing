@@ -24,7 +24,6 @@ NOTES:
 
 import sys
 import os.path
-import getopt
 import subprocess
 import pysolr
 import xmltodict
@@ -68,7 +67,8 @@ class MMD4SolR:
         self.filename = filename
         with open(self.filename, encoding='utf-8') as fd:
             self.mydoc = xmltodict.parse(fd.read())
-            self.mydoc = self.mydoc['OAI-PMH']['GetRecord']['record']['metadata']
+            # I use the line below to test the XML file in the test directory
+            # self.mydoc = self.mydoc['OAI-PMH']['GetRecord']['record']['metadata']
 
     def check_mmd(self):
         """ Check and correct MMD if needed """
